@@ -1,0 +1,18 @@
+hive (project)> create table dataeng(year int,count int)
+              > row format delimited
+              > fields terminated by ','
+              > stored as textfile;
+OK
+Time taken: 5.674 seconds
+hive (project)> insert overwrite table dataeng
+              > select year,count(job_title) from h1b_final where job_title="DATA ENGINEER" group by year;
+elect year,count,(100*(count-lag(count,1)over(order by year))/lag(count,1)over(order by year)) as percen from dataeng;
+
+year	count	percen
+2011	18	NULL
+2012	32	77.77777777777777
+2013	41	28.125
+2014	89	117.07317073170732
+2015	160	79.7752808988764
+2016	251	56.875
+
