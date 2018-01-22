@@ -1,0 +1,7 @@
+1b) select count(*) total, job_title, year from h1b_final group by job_title, year order by total desc limit 5;
+
+53743PROGRAMMER ANALYST2016
+53436PROGRAMMER ANALYST2015
+43114PROGRAMMER ANALYST2014
+33880PROGRAMMER ANALYST2013
+33066PROGRAMMER ANALYST2012
